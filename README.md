@@ -1,11 +1,11 @@
 Para iniciar o projeto você primeiro vai criar o banco de dados.
 
-Instale o banco de dados postgres no seu computador
-veja o site: https://www.postgresql.org/
-Istale segundo seu sistema operacional
-nome do banco sugerido: wedding_gallery
+Instale o banco de dados postgres no seu computador veja o site: https://www.postgresql.org/
+Instale segundo seu sistema operacional
 
-Coloquei os dados na variavel do ambiente no arquivo .env.
+Crie um nome do banco depois de instalado. Nome do banco sugerido: wedding_gallery
+
+Coloque os dados na variável do ambiente no arquivo .env.
 
   DATABASE_NAME = wedding_gallery
   DATABASE_USER = postgres    
@@ -17,11 +17,11 @@ Agora instale o virtualenv na pasta do seu projeto com o comando abaixo:
 
  pip install virtualenv
 
-Ative o virtual env:
-linux:
+Ative o virtualenv:
+- linux:
   source nome_do_ambiente/bin/activate
 
-windows:
+- windows:
   nome_do_ambiente\Scripts\activate
 
 Agora execute o comando para instalar todas as libs:
@@ -44,6 +44,9 @@ Para abrir o admin:
 
 No link Uploaded excels.
   Vc pode fazer um upload de arquivo excel para cadastrar varios usuarios ao mesmo tempo.
+
+No email veio um arquivo anexo que vc pode usar o modelo para criar os usuários
+
   
    
 
