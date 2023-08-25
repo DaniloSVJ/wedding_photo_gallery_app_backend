@@ -1,4 +1,5 @@
 .venv
+.env
 
 upload/*.png
 appgaleria/migrations/__pycache__/*.pyc
