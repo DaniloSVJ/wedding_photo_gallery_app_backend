@@ -14,29 +14,15 @@ from pathlib import Path
 from datetime import timedelta
 
 from django.conf import settings
+from decouple import config
 
-# from django.utils.translation import gettext
-# django.utils.translation.ugettext = gettext
-
-# from django.utils.encoding import smart_str
-# django.utils.encoding.smart_text = smart_str
-# # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-i8ex)#--an#@t402c(-&c3#bo9*2()koyp_w%*2pi76%9kv9b+'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -55,7 +41,6 @@ INSTALLED_APPS = [
 
     'appgaleria'
 ]
-# AUTH_USER_MODEL = 'appgaleria.UserProfile'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -151,11 +136,11 @@ WSGI_APPLICATION = 'galeria.wsgi.application'
 DATABASES = {
    'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wedding_gallery',
-        'USER': 'postgres',
-        'PASSWORD': '123654',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
 
@@ -188,12 +173,8 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

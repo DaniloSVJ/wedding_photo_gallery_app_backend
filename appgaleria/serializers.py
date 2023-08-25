@@ -38,6 +38,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         UserProfile.objects.create(user=user, user_type=user_type)
         return user
+    
 class PhotoSerializer(serializers.ModelSerializer):
     userUpload = serializers.PrimaryKeyRelatedField(read_only=True)
 
@@ -76,15 +77,12 @@ class UploadedExcelSerializer(serializers.ModelSerializer):
         process_excel_file(instance.file.path)
 
 def process_excel_file(file_path):
-    # Carregue o arquivo usando pandas
     df = pd.read_excel(file_path)
 
     for index, row in df.iterrows():
-        # Aqui, assumindo que seu Excel tem colunas chamadas 'email', 'username', etc.
         email = row['email']
         username = row['username']
-        # e assim por diante para outros campos
-
-        # Validação dos dados
+    
+    
         if not email or not username:
             continue  # ou lidar com        

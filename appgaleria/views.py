@@ -16,7 +16,7 @@ class UserCreate(generics.CreateAPIView):
 class PhotoViewSet(viewsets.ModelViewSet):
     queryset = Photo.objects.all()  # pegando todas as fotos, para que o casal possa ver as não aprovadas também
     serializer_class = PhotoSerializer
-    permission_classes = [permissions.IsAuthenticated, IsCoupleOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         user_profile = self.request.user
@@ -41,25 +41,16 @@ class PhotoViewSet(viewsets.ModelViewSet):
 class LikeViewSet(viewsets.ModelViewSet):
     queryset = Like.objects.all()
     serializer_class = LikeSerializer
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-    def perform_update(self, serializer):
-        user_profile = self.request.user
-        serializer.save(userUpload=user_profile)
+    permission_classes = [permissions.IsAuthenticated]
+   
+  
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    permission_classes = [permissions.IsAuthenticated]
+  
 
-    def perform_create(self, serializer):
-        user_profile = self.request.user
-        serializer.save(user=user_profile)
-
-    def perform_update(self, serializer):
-        user_profile = self.request.user
-        serializer.save(userUpload=user_profile)
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
