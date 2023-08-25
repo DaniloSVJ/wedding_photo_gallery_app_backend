@@ -1,6 +1,6 @@
 .venv
 
 upload/*.png
-appgaleria/migrations/__pycache__/*pyc
+appgaleria/migrations/__pycache__/*.pyc
 appgaleria/migrations/*.py
 
