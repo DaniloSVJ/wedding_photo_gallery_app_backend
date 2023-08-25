@@ -3,6 +3,6 @@
 upload/*.png
 appgaleria/migrations/__pycache__/*.pyc
 appgaleria/migrations/*.py
-appgaleria/__pycache__/*.pyc
+appgaleria/__pycache__
 
 
